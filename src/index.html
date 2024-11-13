@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual do SIM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+  
+    ::-webkit-scrollbar-thumb {
+      background: #0000;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+  
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B3E5FC;
+    }
+  
+   
+    ::-webkit-scrollbar-track {
+      background: #000;
+      border-radius: 10px;
+    }
+  
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #0000 
+    }
+    html {
+    scroll-behavior: smooth;
+  }
+
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+
+  .hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  </style>
+<body class="flex flex-col min-h-screen">
+    <nav class="bg-[#1B5E20] p-4 shadow-lg">  
+        
+        <div class="container mx-auto">
+              
+            
+     
+            <div id="desktopMenu" class="hidden md:flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="./image/sim.png" alt="Logo do SIM" class="h-12 w-auto">
+                    
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.mpap.mp.br/" target="_blank" class="text-white hover:text-gray-200 py-2">Portal MP</a>
+                    <a href="https://mpap.mp.br/radar_ambiental_web_v2/login" target="_blank" class="bg-white text-[#1B5E20] px-4 py-2 hover:bg-gray-200 rounded-md">Sistema SIM</a>
+                </div>
+
+            <div class="relative md:hidden flex justify-center items-center w-full">
+                <button id="sidebarToggle" class="text-white md:hidden absolute left-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <button id="mobileDropdownButton" class="text-2xl font-bold text-white focus:outline-none flex items-center">
+                    Radar Ambiental
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div id="mobileDropdownMenu" class="absolute hidden mt-40 w-48 bg-white rounded-md shadow-lg py-1">
+                    <a href="https://www.mpap.mp.br/" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Portal MP</a>
+                    <a href="https://mpap.mp.br/radar_ambiental_web_v2/login" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">SIM</a>
+                </div>
+            </div>
+                
+                
+                
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-grow">
+        
+
+        <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out z-30 md:z-0 md:sticky md:top-0 md:h-screen">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 min-w-[200px] max-w-[400px] w-auto">
+                <ul class="space-y-2 font-medium">
+                   
+                
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-acessar" data-collapse-toggle="dropdown-acessar">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Como acessar o SIM</span>
+                        </button>
+                        <ul id="dropdown-acessar" class=" py-2 space-y-2">
+                            <li>
+                                <a href="#entrar-radar-ambiental" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Entrar no SIM</a>
+                            </li>
+                        </ul>
+                    </li>
+        
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-pagina-inicial" data-collapse-toggle="dropdown-pagina-inicial">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Consultar Processos</span>
+                        </button>
+                        <ul id="dropdown-pagina-inicial" class="py-2 space-y-2">
+                            <li>
+                                <a href="#informacoes1-dashboard" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Como consultar processos?</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-relatorio" data-collapse-toggle="dropdown-relatorio">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Caixa de Distribuição</span>
+                        </button>
+                        <ul id="dropdown-relatorio" class="py-2 space-y-2">
+                            <li>
+                                <a href="#relatorio1" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Caixa de Distribuição - Acessar</a>
+                            </li>
+                            <li>
+                                <a href="#relatorio2" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Caixa de Distribuição - Ações</a>
+                            </li>
+                            <li>
+                                <a href="#relatorio3" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">3. Caixa de Distribuição - Filtro</a>
+                            </li>
+                            <li>
+                                <a href="#relatorio4" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">4. Caixa de Distribuição - Distribuidos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-mapa" data-collapse-toggle="dropdown-mapa">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Petições Iniciais</span>
+                        </button>
+                        <ul id="dropdown-mapa" class="py-2 space-y-2">
+                            <li>
+                                <a href="#mapa1" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Petições Iniciais - Acessar</a>
+                            </li>
+                            <li>
+                                <a href="#mapa2" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Petições Iniciais - Criar Petição Inicial</a>
+                            </li>
+                            <li>
+                                <a href="#mapa3" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">3. Petições Iniciais - Filtro</a>
+                            </li>
+                            <li>
+                                <a href="#mapa4" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">4. Petições Iniciais - Ações</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-avaliar" data-collapse-toggle="dropdown-avaliar">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Expedientes</span>
+                        </button>
+                        <ul id="dropdown-avaliar" class="py-2 space-y-2">
+                            <li>
+                                <a href="#avaliar1" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Expedientes - Acessar</a>
+                            </li>
+                            <li>
+                                <a href="#avaliar2" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Expedientes - Filtro</a>
+                            </li>
+                            <li>
+                                <a href="#avaliar3" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Expedientes - Ações</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-acessando" data-collapse-toggle="dropdown-acessando">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Petições incidentais</span>
+                        </button>
+                        <ul id="dropdown-acessando" class="py-2 space-y-2">
+                            <li>
+                                <a href="#acessando1" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Petições Incidentais - Acessar</a>
+                            </li>
+                            <li>
+                                <a href="#acessando2" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Petições Incidentais - Criar Petição Incidental</a>
+                            </li>
+                            <li>
+                                <a href="#acessando3" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">3. Petições Incidentais - Filtro</a>
+                            </li>
+                            <li>
+                                <a href="#acessando4" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">4. Petições Incidentais - Visualizar</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-credenciais" data-collapse-toggle="dropdown-credenciais">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Credenciais Tribunais</span>
+                        </button>
+                        <ul id="dropdown-credenciais" class="py-2 space-y-2">
+                            <li>
+                                <a href="#credenciais1" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Credenciais Tribunais - Acessar </a>
+                            </li>
+                            <li>
+                                <a href="#credenciais2" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Credenciais <br> Informar Credencial</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-credenciais" data-collapse-toggle="dropdown-credenciais">
+                            <svg class="w-3 h-3 transition-transform duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                            <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap text-lg">Relatórios</span>
+                        </button>
+                        <ul id="dropdown-credenciais" class="py-2 space-y-2">
+                            <li>
+                                <a href="#relatorios1" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">1. Relatórios - Acessar </a>
+                            </li>
+                            <li>
+                                <a href="#relatorios2" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">2. Relatórios de Expedientes</a>
+                            </li>
+                           
+                            <li>
+                                <a href="#relatorios3" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">3. Relatórios de Movimentos Taxônomicos</a>
+                            </li>
+                           
+                           
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </aside>
+
+        <main class="flex-grow p-4 md:ml-[200px]">
+            <button id="backToTopBtn" class="fixed bottom-5 right-5 bg-[#45a049] text-gray-600 p-3 rounded-full shadow-lg opacity-0 transition-all duration-300 hover:bg-[#45a049] hover:shadow-xl focus:outline-none transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+            </button>
+
+           
+
+                
+                <section id="entrar-radar-ambiental" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Como acessar o SIM</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold mb-4">1. Entrar no SIM</h3>
+                            <p class="mb-4">Fazer seu login, com seu usuário</p>
+                            <img src="image/assets/login.png" alt="Como acessar SIM" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            <h3 class="text-2xl font-semibold mb-4">2. Selecionar a unidade</h3>
+                            <p class="mb-4">Selecionar a unidade onde você trabalha</p>
+                            <img src="image/assets/login-unidade.png" alt="Selecionar a unidade" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="consultar-processos" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Consultar Processos</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold mb-4" id="informacoes1-dashboard">Como consultar processos?</h3>
+                            <p class="mb-4">Clique no botão abaixo para acesso a tela de consulta de processos</p>
+                            <img src="image/assets/consultar-processo-button.png" alt="Consultar Processos" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                        </div>
+                        <div class="p-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold mb-4" id="informacoes1-dashboard">Tela de Consulta de Processos</h3>
+                            <p class="mb-4">A tela de consulta de processos é composta por:</p>
+                            <img src="image/assets/consultar-processo.png" alt="Consultar Processos" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                        </div>
+                    </div>
+                    
+                </section>
+
+                <section id="caixa-distribuicao" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Caixa de Distribuição</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <div id="relatorio1">
+                                <h3 class="text-2xl font-semibold mb-4">1. Caixa de Distribuição - Acessar</h3>
+                                <p class="mb-4">Clique no botão abaixo para acesso a tela de consulta caixa de distribuição</p>
+
+                                <img src="image/assets/caixa-distribuicao-button.png" alt="Acessar Caixa de Distribuição" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                            
+                            <div id="relatorio2">
+                                <h3 class="text-2xl font-semibold mb-4">2. Caixa de Distribuição - Ações</h3>
+                                <p class="mb-4">Ações disponíveis para cada processo na caixa de distribuição:</p>
+                                <ul class="list-disc pl-6 mb-4"></ul>
+                                    <li>Visualizar</li>
+                                    <li>Distribuir</li>
+                                    
+                                </ul>
+                                <img src="image/assets/filtro-caixa-acoes.png" alt="Ações Caixa de Distribuição" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            
+                            
+                            <div id="relatorio3">
+                                <h3 class="text-2xl font-semibold mb-4">3. Caixa de Distribuição - Filtro</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar processos específicos na caixa de distribuição - Opções de Status</p>
+                                <img src="image/assets/filtro-caixa-status.png" alt="Filtro Caixa de Distribuição" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <p class="mb-4">Como utilizar os filtros para encontrar processos específicos na caixa de distribuição - Opções de Tribunal</p>
+                                <img src="image/assets/filtro-caixa-tribunal.png" alt="Filtro Caixa de Distribuição" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                            
+                            <div id="relatorio4">
+                                <h3 class="text-2xl font-semibold mb-4">4. Caixa de Distribuição - Distribuídos</h3>
+                                <p class="mb-4">Para acessar a área de processos distribuídos, clique no botão abaixo:</p>
+                                <img src="image/assets/caixa-distribuidos.png" alt="Distribuídos Caixa de Distribuição" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+           
+                <section id="peticoes-iniciais" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Petições Iniciais</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <div id="mapa1">
+                                <h3 class="text-2xl font-semibold mb-4">1. Petições Iniciais - Acessar</h3>
+                                <p class="mb-4">Para acessar as petições iniciais, clique no menu lateral em "Petições Iniciais"</p>
+                                <img src="image/assets/peticoes-iniciais-button.png" alt="Acessar Petições Iniciais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <p class="mb-4">Tela de Petições Iniciais</p>
+                                <img src="image/assets/peticao-iniciais-tela.png" alt="Petição Inicial" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="mapa2">
+                                <h3 class="text-2xl font-semibold mb-4">2. Petições Iniciais - Criar Petição Inicial</h3>
+                                <p class="mb-4">Para criar uma nova petição inicial, clique no botão "Nova Petição Inicial"</p>
+                                <img src="image/assets/criar-peticao-button.png" alt="Criar Petição Inicial" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4"> Petições Iniciais - Dados da Petição</h3>
+                                <p class="mb-4">Aqui você pode informar os dados da petição inicial</p>
+                                <img src="image/assets/dados-peticao-inicial.png" alt="Criar Petição Inicial" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4"> Petições Iniciais - Assuntos CNMP</h3>
+                                <p class="mb-4">Aqui você pode selecionar o assunto da petição</p>
+                                <img src="image/assets/assuntos-cnmp.png" alt="Assuntos CNMP" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4"> Petições Iniciais - Adicionar Partes</h3>
+                                <p class="mb-4">Aqui você pode adicionar as partes da petição</p>
+                                <img src="image/assets/informacoes-departe-peticao-inicial.png" alt="Assuntos CNMP" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4"> Petições Iniciais - Características</h3>
+                                <p class="mb-4">Aqui você pode informar as características da petição</p>
+                                <img src="image/assets/peticao-caracteristicas.png" alt="Assuntos CNMP" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4"> Petições Iniciais - Anexar Documentos</h3>
+                                <p class="mb-4">Aqui você pode anexar os documentos da petição</p>
+                                <img src="image/assets/peticao-caracteristicas.png" alt="Anexar Documentos" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="mapa3">
+                                <h3 class="text-2xl font-semibold mb-4">3. Petições Iniciais - Filtro</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar petições específicas</p>
+                                <img src="image/assets/peticao-inicial-filtro.png" alt="Filtros de Petições" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Petições Iniciais - Filtro - Status</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar petições específicas - Opções de Status</p>
+                                <img src="image/assets/peticao-inicial-filtro-status.png" alt="Filtros de Petições" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Petições Iniciais - Filtro - Tribunal</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar petições específicas - Opções de Tribunal</p>
+                                <img src="image/assets/peticao-inicial-filtro-tribunais.png" alt="Filtros de Petições" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="mapa4">
+                                <h3 class="text-2xl font-semibold mb-4">4. Petições Iniciais - Ações</h3>
+                                <p class="mb-4">Ações disponíveis para cada petição inicial:</p>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Visualizar detalhes</li>
+                                    <li>Logs MNI</li>
+                                    
+                                </ul>
+                                <img src="image/assets/acoes-peticao-inicial.png" alt="Ações de Petições" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="expedientes" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Expedientes</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <div id="avaliar1">
+                                <h3 class="text-2xl font-semibold mb-4">1. Expedientes - Acessar</h3>
+                                <p class="mb-4">Clicar no botão abaixo para acessar a tela de expedientes</p>
+                                <img src="image/assets/expedientes-button.png" alt="Acessar Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Expedientes - Tela</h3>
+                                <p class="mb-4">Tela de Expedientes</p>
+                                <img src="image/assets/expedientes-tela.png" alt="Tela de Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="avaliar2">
+                                <h3 class="text-2xl font-semibold mb-4">2. Expedientes - Filtro</h3>
+                                <p class="mb-4">Como utilizar os filtros para localizar expedientes específicos</p>
+                                <img src="image/assets/expedientes-filtro.png" alt="Filtros de Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Expedientes - Filtro - Status</h3>
+                                <p class="mb-4">Como utilizar os filtros para localizar expedientes específicos - Opções de Status</p>
+                                <img src="image/assets/ex-filtro-status.png" alt="Filtros de Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Expedientes - Filtro - Tribunal</h3>
+                                <p class="mb-4">Como utilizar os filtros para localizar expedientes específicos - Opções de Tribunal</p>
+                                <img src="image/assets/ex-filtro-tribunais.png" alt="Filtros de Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="avaliar3">
+                                <h3 class="text-2xl font-semibold mb-4">3. Expedientes - Ações</h3>
+                                <p class="mb-4">Ações disponíveis para cada expediente:</p>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Visualizar</li>
+                                    
+                                </ul>
+                                <img src="image/assets/expedientes-acoes.png" alt="Ações de Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="peticoes-incidentais" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Petições Incidentais</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <div id="acessando1">
+                                <h3 class="text-2xl font-semibold mb-4">1. Petições Incidentais - Acessar</h3>
+                                <p class="mb-4">Clicar no botão abaixo para acessar a tela de petições incidentais</p>
+                                <img src="image/assets/peticao-incidental.png" alt="Acessar Petições Incidentais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Petições Incidentais - Tela</h3>
+                                <p class="mb-4">Tela de Petições Incidentais</p>
+                                <img src="image/assets/peticoes-incidenteais-tela.png" alt="Acessar Petições Incidentais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                               
+                            </div>
+
+                            <div id="acessando2">
+                                <h3 class="text-2xl font-semibold mb-4">2. Petições Incidentais - Criar Petição Incidental</h3>
+                                <p class="mb-4">Para criar uma nova petição incidental, clique no botão "Nova Petição Incidental"</p>
+                                <img src="image/assets/criar-peticao-button.png" alt="Criar Petição Incidental" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">Petições Incidentais - Dados da Petição</h3>
+                                <p class="mb-4">Aqui você pode informar os dados da petição, terá as opções de:</p>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Tribunal</li>
+                                    <li>Numero do Processo</li>
+                                    
+                                </ul>
+                                <img src="image/assets/peticao-incidental-pesquisa.png" alt="Acessar Petições Incidentais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="acessando3">
+                                <h3 class="text-2xl font-semibold mb-4">3. Petições Incidentais - Filtro</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar petições incidentais específicas</p>
+                                <img src="image/assets/peticao-incidental-filtro.png" alt="Filtros de Petições Incidentais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">3. Petições Incidentais - Filtro - Status</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar petições incidentais específicas - Opções de Status</p>
+                                <img src="image/assets/peticao-incidental-filtro-status.png" alt="Filtros de Petições Incidentais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">3. Petições Incidentais - Filtro - Tribunal</h3>
+                                <p class="mb-4">Como utilizar os filtros para encontrar petições incidentais específicas - Opções de Tribunal</p>
+                                <img src="image/assets/tribunais-peticao-incidental.png" alt="Filtros de Petições Incidentais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+
+                            </div>
+
+                            <div id="acessando4">
+                                <h3 class="text-2xl font-semibold mb-4">4. Petições Incidentais - Visualizar</h3>
+                                <p class="mb-4">Como visualizar os detalhes de uma petição incidental</p>
+                                <img src="image/assets/peticao-incidental-visualizar.png" alt="Visualizar Petição Incidental" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="credenciais-tribunais" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Credenciais Tribunais</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <div id="credenciais1">
+                                <h3 class="text-2xl font-semibold mb-4">1. Credenciais Tribunais - Acessar</h3>
+                                <p class="mb-4">Clicar no botão abaixo para acessar a seção de credenciais dos tribunais</p>
+                                <img src="image/assets/credenciais-tribuinais-button.png" alt="Acessar Credenciais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">1. Credenciais Tribunais - Tela</h3>
+                                <p class="mb-4">Tela de Credenciais Tribunais</p>
+                                <img src="image/assets/credenciais-tribunal-tela.png" alt="Acessar Credenciais" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="credenciais2">
+                                <h3 class="text-2xl font-semibold mb-4">2. Credenciais - Informar Credencial</h3>
+                                <p class="mb-4">Como informar as credenciais do tribunal</p>
+                                <img src="image/assets/informar-credencial.png" alt="Informar Credencial" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">2. Credenciais - Fazer Cadastro</h3>
+                                <p class="mb-4">Como fazer login no sistema com as credenciais do tribunal</p>
+                                <img src="image/assets/cadastro-credencial.png" alt="Fazer Login" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="relatorios" class="max-w-3xl mx-auto px-4 py-8 mt-9">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <h2 class="text-3xl font-bold p-6">✔️ Relatórios</h2>
+                        <div class="p-6 border-t border-gray-200">
+                            <div id="relatorios1">
+                                <h3 class="text-2xl font-semibold mb-4">1. Relatórios - Acessar</h3>
+                                <p class="mb-4">Clicar no botão abaixo para acessar a seção de relatórios do sistema</p>
+                                <img src="image/assets/relatorio-button.png" alt="Acessar Relatórios" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                                <h3 class="text-2xl font-semibold mb-4">1. Relatórios - Tela</h3>
+                                <p class="mb-4">Tela de Relatórios</p>
+                                <img src="image/assets/relatorios-tela.png" alt="Acessar Relatórios" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="relatorios2">
+                                <h3 class="text-2xl font-semibold mb-4">2. Relatórios de Expedientes</h3>
+                                <p class="mb-4">Como gerar e visualizar relatórios de expedientes:</p>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Selecionar o status</li>
+                                    
+                                </ul>
+                                <img src="image/assets/opcoes-relatorio-status.png" alt="Relatórios de Expedientes" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+
+                            <div id="relatorios3">
+                                <h3 class="text-2xl font-semibold mb-4">3. Relatórios de Movimentos Taxonômicos</h3>
+                                <p class="mb-4">Como gerar e analisar relatórios de movimentos taxonômicos:</p>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Selecionar Período Atual</li>
+                                    <li>Selecionar Período Final</li>
+                                   
+                                </ul>
+                                <img src="image/assets/taxno.png" alt="Relatórios de Movimentos Taxonômicos" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-8"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileDropdownButton = document.getElementById('mobileDropdownButton');
+        const mobileDropdownMenu = document.getElementById('mobileDropdownMenu');
+
+        mobileDropdownButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            mobileDropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function() {
+            mobileDropdownMenu.classList.add('hidden');
+        });
+
+        const dropdowns = document.querySelectorAll('[data-collapse-toggle]');
+
+        dropdowns.forEach(dropdown => {
+            const dropdownToggle = dropdown;
+            const dropdownContent = document.getElementById(dropdown.getAttribute('aria-controls'));
+            const dropdownIcon = dropdownToggle.querySelector('svg');
+
+            
+
+            dropdownToggle.addEventListener('click', function() {
+                dropdownContent.classList.toggle('hidden');
+                dropdownIcon.classList.toggle('rotate-180');
+            });
+        });
+
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnToggleButton = sidebarToggle.contains(event.target);
+
+            if (!isClickInsideSidebar && !isClickOnToggleButton && window.innerWidth < 768) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+    });
+
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    backToTopBtn.classList.remove('opacity-0');
+    backToTopBtn.classList.add('opacity-100');
+  } else {
+    backToTopBtn.classList.remove('opacity-100');
+    backToTopBtn.classList.add('opacity-0');
+  }
+});
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+</body>
+</html>
